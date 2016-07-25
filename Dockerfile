@@ -8,7 +8,9 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN apt-get update && apt-get install --yes nodejs
 
 # integrated qlik/gradle
-ENV GRADLE_VERSION 2.9
+ENV GRADLE_VERSION 2.9 \ 
+   GRADLE_HOME=/usr/bin/gradle-2.14 \
+   PATH=$PATH:/usr/bin/gradle-2.14/bin \
 
 WORKDIR /usr/bin
 RUN curl -sLO https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip && \
